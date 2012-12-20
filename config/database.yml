@@ -1,6 +1,26 @@
 development:
   adapter: em_mysql2
-  database: tioki-cramp_development
+  database: demolesson_development
   host: localhost
   username: root
   pool: 100
+
+staging:
+  adapter: mysql2
+  encoding: utf8
+  database: staging
+  pool: 5
+  username: app
+  password: Preview1
+  host: tioki.ccpnbm767gal.us-west-2.rds.amazonaws.com
+  port: 3306
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: production
+  pool: 5
+  username: app
+  password: Preview1
+  host: tioki.ccpnbm767gal.us-west-2.rds.amazonaws.com
+  port: 3306

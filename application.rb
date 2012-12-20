@@ -25,12 +25,12 @@ module TiokiCramp
     def self.initialize!
       ActiveRecord::Base.configurations = TiokiCramp::Application.database_config
       ActiveRecord::Base.establish_connection(TiokiCramp::Application.env)
+
+      # Preload application classes
+      Dir.glob("./app/**{,/*/**}/*.rb").each {|f| require f}
     end
 
   end
 end
 
 Bundler.require(:default, TiokiCramp::Application.env)
-
-# Preload application classes
-Dir['./app/**/*.rb'].each {|f| require f}
