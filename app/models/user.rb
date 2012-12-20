@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
 		time = time.last_login if time.is_a?(User)
 		where('last_login > ?', time).order('last_login DESC')
 	end
+
+	def url
+		"/profile/#{slug}"
+	end
+
+	def link
+		"<a href=\"#{url}\">#{name}</a>"
+	end
 end
