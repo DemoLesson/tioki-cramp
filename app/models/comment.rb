@@ -17,7 +17,7 @@ class Comment < ActiveRecord::Base
 		_class.constantize.find(commentable_id)
 	end
 
-	def link
+	def url
 		"/discussions/#{owner.to_param}#c#{id}"
 	end
 end
