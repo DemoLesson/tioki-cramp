@@ -1,5 +1,6 @@
 class Session < ActiveRecord::Base
 	set_table_name :sessions
+	belongs_to :user
 
 	# Get the data on the sessions table
 	def data; Marshal.load(Base64.decode64(read_attribute(:data))); end
