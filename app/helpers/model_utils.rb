@@ -10,7 +10,7 @@ module ModelUtils
 
 		case minutes
 		when 1..4            then 'a few minutes ago'
-		when 5..59           then "about #{minutes}"
+		when 5..59           then "about #{minutes} minutes ago"
 		when 60..119         then 'over 1 hour ago'
 		when 120..239        then 'over 2 hours ago'
 		when 240..479        then 'over 4 hours ago'
