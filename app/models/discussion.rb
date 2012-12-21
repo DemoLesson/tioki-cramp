@@ -9,13 +9,17 @@ class Discussion < ActiveRecord::Base
 		where('created_at > ?', time).order('created_at DESC')
 	end
 
+	def to_param
+		"#{id}-#{title.parameterize}"
+	end
+
 	def owner
 		_class, _id = read_attribute(:owner).split(':')
 		_class.constantize.find(_id)
 	end
 
 	def url
-		"/discussions/#{id}"
+		"/discussions/#{to_param}"
 	end
 
 	def link
