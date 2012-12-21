@@ -33,4 +33,7 @@ module TiokiCramp
   end
 end
 
+# Load helpers
+Dir.glob("./app/helpers/*.rb").each {|f| require f}
+
 Bundler.require(:default, TiokiCramp::Application.env)
