@@ -30,9 +30,10 @@ class Notification < ActiveRecord::Base
 		ret = String.new
 		case _class
 		when 'Comment'
-			ret = "#{triggered.link} replied to a discussion."
+			ret = "#{triggered.link} replied to #{tag.owner.link}."
 		when 'Discussion'
-			ret = "#{triggered.link} created a discussion on #{tag.owner.link}. Go read #{tag.link}."
+			ret = "#{triggered.link} created a discussion #{tag.link}." if tag.owner.nil?
+			ret = "#{triggered.link} created the discussion #{tag.link} on #{tag.owner.link}."
 		when 'Favorite'
 			ret = "#{triggered.link} favorited a post of yours."
 		when 'Application'

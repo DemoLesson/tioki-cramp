@@ -14,6 +14,7 @@ class Discussion < ActiveRecord::Base
 	end
 
 	def owner
+		return nil if read_attribute(:owner).nil?
 		_class, _id = read_attribute(:owner).split(':')
 		_class.constantize.find(_id)
 	end
